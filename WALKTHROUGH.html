@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,21 +15,25 @@
             padding: 40px;
             background-color: #fff;
         }
+
         h1 {
             color: #2563eb;
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
+
         h2 {
             color: #1e40af;
             margin-top: 30px;
             border-bottom: 1px solid #eee;
             padding-bottom: 5px;
         }
+
         h3 {
             color: #475569;
             margin-top: 20px;
         }
+
         code {
             background-color: #f1f5f9;
             padding: 2px 5px;
@@ -36,6 +41,7 @@
             font-family: Consolas, monospace;
             color: #dc2626;
         }
+
         pre {
             background-color: #f8fafc;
             padding: 15px;
@@ -43,20 +49,25 @@
             overflow-x: auto;
             border: 1px solid #e2e8f0;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        th, td {
+
+        th,
+        td {
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid #ddd;
         }
+
         th {
             background-color: #f8fafc;
             color: #334155;
         }
+
         .highlight {
             background-color: #dbeafe;
             padding: 15px;
@@ -64,6 +75,7 @@
             border-radius: 0 4px 4px 0;
             margin: 20px 0;
         }
+
         .footer {
             margin-top: 50px;
             text-align: center;
@@ -72,12 +84,19 @@
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
+
         @media print {
-            body { padding: 0; }
-            .no-print { display: none; }
+            body {
+                padding: 0;
+            }
+
+            .no-print {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div style="text-align: center; margin-bottom: 40px;">
@@ -87,8 +106,26 @@
     </div>
 
     <div class="highlight">
+        <h3>🔗 Submission Links (Checklist Items)</h3>
+        <p><strong>📂 GitHub Repository:</strong> <a href="https://github.com/ajha19/Mini-Task-Tracker"
+                target="_blank">https://github.com/ajha19/Mini-Task-Tracker</a></p>
+        <p><strong>🎥 Demo Video:</strong> <a
+                href="https://drive.google.com/drive/folders/1cijVPrgkRqR_OqkFudztDai3YELdTg35?usp=drive_link"
+                target="_blank">Watch on Google Drive</a></p>
+    </div>
+
+    <div style="margin: 30px 0; text-align: center;">
+        <img src="./assets/Dashboard.png" alt="Project Screenshot"
+            style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+        <p style="font-size: 0.9em; color: #64748b; margin-top: 10px;">Fig 1. Project Dashboard with Task Management
+            Features</p>
+    </div>
+
+    <div class="highlight" style="background-color: #f0fdf4; border-left-color: #16a34a;">
         <h3>🚀 Executive Summary</h3>
-        <p>This project is a full-stack web application designed for efficient task management. It features a professional UI, secure authentication, Redis caching for performance, and comprehensive backend testing (70%+ coverage).</p>
+        <p>This project is a full-stack web application designed for efficient task management. It features a
+            professional UI, secure authentication, Redis caching for performance, and comprehensive backend testing
+            (70%+ coverage).</p>
     </div>
 
     <h2>1. Technology Stack 🛠️</h2>
@@ -144,11 +181,12 @@ npm run dev</code></pre>
     <p>The application will be accessible at <code>http://localhost:3000</code>.</p>
 
     <h2>3. Key Features 📱</h2>
-    
+
     <h3>Authentication & Security</h3>
     <ul>
         <li><strong>Secure Login/Signup:</strong> JWT-based authentication with Bcrypt password hashing.</li>
-        <li><strong>Auto-Logout:</strong> Users are automatically logged out if they navigate back to the login page to ensure session security.</li>
+        <li><strong>Auto-Logout:</strong> Users are automatically logged out if they navigate back to the login page to
+            ensure session security.</li>
         <li><strong>Protected Routes:</strong> Dashboard is inaccessible without a valid token.</li>
     </ul>
 
@@ -156,7 +194,9 @@ npm run dev</code></pre>
     <ul>
         <li><strong>CRUD Operations:</strong> Create, Read, Update, and Delete tasks seamlessly.</li>
         <li><strong>Due Dates:</strong> Assign dates to tasks to track deadlines.</li>
-        <li><strong>Filtering:</strong> Filter tasks by <strong>All</strong>, <strong>Pending</strong>, or <strong>Completed</strong> status.</li>
+        <li><strong>Filtering:</strong> Filter tasks by <strong>All</strong>, <strong>Pending</strong>, or
+            <strong>Completed</strong> status.
+        </li>
         <li><strong>Optimistic UI:</strong> Instant visual feedback when toggling task status.</li>
     </ul>
 
@@ -165,7 +205,8 @@ npm run dev</code></pre>
     <ul>
         <li><strong>Modular Architecture:</strong> Separation of Controllers, Services, and Routes.</li>
         <li><strong>Type Safety:</strong> 100% TypeScript implementation across frontend and backend.</li>
-        <li><strong>Performance:</strong> Redis caching strategy implemented for the <code>GET /tasks</code> endpoint to reduce database load.</li>
+        <li><strong>Performance:</strong> Redis caching strategy implemented for the <code>GET /tasks</code> endpoint to
+            reduce database load.</li>
     </ul>
 
     <h2>5. Testing ✅</h2>
@@ -181,4 +222,5 @@ npm run dev</code></pre>
     </div>
 
 </body>
+
 </html>
