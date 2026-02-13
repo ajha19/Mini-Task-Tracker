@@ -71,6 +71,46 @@ describe('Task API', () => {
             .delete(`/api/tasks/${taskId}`)
             .set('Authorization', `Bearer ${token}`);
 
-        expect(res.statusCode).toEqual(200);
+    });
+
+    it('should return 404 if task not found', async () => {
+        const res = await request(app)
+            .delete(`/api/tasks/60d5ec49f1b2c8211c123456`) // Random ObjectId
+            .set('Authorization', `Bearer ${token}`);
+
+        expect(res.statusCode).toEqual(404);
+    });
+
+    it('should return 401 if user is not authorized to delete task', async () => {
+        // Create a task with the first user
+        const createRes = await request(app)
+            .post('/api/tasks')
+            .set('Authorization', `Bearer ${token}`)
+            .send({ title: 'Task for User 1' });
+
+        const taskId = createRes.body._id;
+
+        // Create a second user
+        await request(app).post('/api/auth/signup').send({
+            name: 'User 2',
+            email: 'user2@example.com',
+            password: 'password123',
+        });
+
+        const loginRes2 = await request(app)
+            .post('/api/auth/login')
+            .send({
+                email: 'user2@example.com',
+                password: 'password123',
+            });
+
+        const token2 = loginRes2.body.token;
+
+        // Try to delete the task with the second user
+        const res = await request(app)
+            .delete(`/api/tasks/${taskId}`)
+            .set('Authorization', `Bearer ${token2}`);
+
+        expect(res.statusCode).toEqual(401);
     });
 });

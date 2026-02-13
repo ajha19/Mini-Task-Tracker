@@ -7,6 +7,8 @@ import { useAuth } from '@/context/AuthContext';
 import api from '@/lib/api';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Mail, Lock, User } from 'lucide-react';
 
 export default function SignupPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -28,47 +30,63 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <h2 className="text-3xl font-extrabold text-gray-900">Create your account</h2>
-        <p className="mt-2 text-sm text-gray-600">
+    <Card className="w-full max-w-md shadow-lg">
+      <CardHeader className="space-y-1 text-center">
+        <CardTitle className="text-2xl font-bold tracking-tight">Create an account</CardTitle>
+        <CardDescription>
+          Enter your details to get started with Task Tracker
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <Input
+            label="Full Name"
+            type="text"
+            placeholder="John Doe"
+            icon={User}
+            {...register('name', { required: 'Name is required' })}
+            error={errors.name?.message as string}
+          />
+
+          <Input
+            label="Email"
+            type="email"
+            placeholder="name@example.com"
+            icon={Mail}
+            autoComplete="email"
+            {...register('email', { required: 'Email is required' })}
+            error={errors.email?.message as string}
+          />
+
+          <Input
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            icon={Lock}
+            autoComplete="new-password"
+            {...register('password', { required: 'Password is required' })}
+            error={errors.password?.message as string}
+          />
+
+          {error && (
+            <div className="p-3 text-sm text-destructive bg-red-50 rounded-md border border-red-100">
+              {error}
+            </div>
+          )}
+
+          <Button type="submit" className="w-full" isLoading={loading}>
+            Create account
+          </Button>
+        </form>
+      </CardContent>
+      <CardFooter className="flex justify-center">
+        <p className="text-sm text-muted-foreground">
           Already have an account?{' '}
-          <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+          <Link href="/login" className="font-medium text-primary hover:text-primary/80 transition-colors">
             Sign in
           </Link>
         </p>
-      </div>
-
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          label="Full Name"
-          type="text"
-          {...register('name', { required: 'Name is required' })}
-          error={errors.name?.message as string}
-        />
-
-        <Input
-          label="Email address"
-          type="email"
-          autoComplete="email"
-          {...register('email', { required: 'Email is required' })}
-          error={errors.email?.message as string}
-        />
-
-        <Input
-          label="Password"
-          type="password"
-          autoComplete="new-password"
-          {...register('password', { required: 'Password is required' })}
-          error={errors.password?.message as string}
-        />
-
-        {error && <p className="text-sm text-red-600 text-center bg-red-50 p-2 rounded">{error}</p>}
-
-        <Button type="submit" className="w-full" isLoading={loading}>
-          Sign up
-        </Button>
-      </form>
-    </div>
+      </CardFooter>
+    </Card>
   );
 }
