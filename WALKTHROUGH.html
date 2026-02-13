@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLDD Assignment - Mini Task Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #2563eb;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1e40af;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #475569;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            color: #dc2626;
+        }
+        pre {
+            background-color: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #e2e8f0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        .highlight {
+            background-color: #dbeafe;
+            padding: 15px;
+            border-left: 4px solid #2563eb;
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #94a3b8;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        @media print {
+            body { padding: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="border: none; margin-bottom: 10px;">Mini Task Tracker</h1>
+        <p style="font-size: 1.2em; color: #64748b;">A WLDD Assignment Submission</p>
+        <p><strong>Submitted by:</strong> Aman Jha | <strong>Date:</strong> February 14, 2026</p>
+    </div>
+
+    <div class="highlight">
+        <h3>🚀 Executive Summary</h3>
+        <p>This project is a full-stack web application designed for efficient task management. It features a professional UI, secure authentication, Redis caching for performance, and comprehensive backend testing (70%+ coverage).</p>
+    </div>
+
+    <h2>1. Technology Stack 🛠️</h2>
+    <table>
+        <tr>
+            <th>Layer</th>
+            <th>Technologies</th>
+        </tr>
+        <tr>
+            <td><strong>Frontend</strong></td>
+            <td>Next.js 15 (App Router), TypeScript, Tailwind CSS, Framer Motion</td>
+        </tr>
+        <tr>
+            <td><strong>Backend</strong></td>
+            <td>Node.js, Express.js, TypeScript</td>
+        </tr>
+        <tr>
+            <td><strong>Database</strong></td>
+            <td>MongoDB (Mongoose ODM)</td>
+        </tr>
+        <tr>
+            <td><strong>Caching</strong></td>
+            <td>Redis</td>
+        </tr>
+        <tr>
+            <td><strong>Testing</strong></td>
+            <td>Jest, Supertest</td>
+        </tr>
+    </table>
+
+    <h2>2. Setup & Installation ⚙️</h2>
+    <p>Follow these steps to run the application locally.</p>
+
+    <h3>Prerequisites</h3>
+    <ul>
+        <li>Node.js (v18+)</li>
+        <li>MongoDB (Port 27017)</li>
+        <li>Redis (Port 6379)</li>
+    </ul>
+
+    <h3>Step 1: Backend Setup</h3>
+    <pre><code>cd backend
+npm install
+cp .env.example .env
+# Ensure PORT=5001 is set in .env
+npm run dev</code></pre>
+
+    <h3>Step 2: Frontend Setup</h3>
+    <pre><code>cd frontend
+npm install
+cp .env.example .env.local
+npm run dev</code></pre>
+    <p>The application will be accessible at <code>http://localhost:3000</code>.</p>
+
+    <h2>3. Key Features 📱</h2>
+    
+    <h3>Authentication & Security</h3>
+    <ul>
+        <li><strong>Secure Login/Signup:</strong> JWT-based authentication with Bcrypt password hashing.</li>
+        <li><strong>Auto-Logout:</strong> Users are automatically logged out if they navigate back to the login page to ensure session security.</li>
+        <li><strong>Protected Routes:</strong> Dashboard is inaccessible without a valid token.</li>
+    </ul>
+
+    <h3>Task Management</h3>
+    <ul>
+        <li><strong>CRUD Operations:</strong> Create, Read, Update, and Delete tasks seamlessly.</li>
+        <li><strong>Due Dates:</strong> Assign dates to tasks to track deadlines.</li>
+        <li><strong>Filtering:</strong> Filter tasks by <strong>All</strong>, <strong>Pending</strong>, or <strong>Completed</strong> status.</li>
+        <li><strong>Optimistic UI:</strong> Instant visual feedback when toggling task status.</li>
+    </ul>
+
+    <h2>4. System Quality & Architecture 🏗️</h2>
+    <p>The codebase is structured for scalability and maintainability:</p>
+    <ul>
+        <li><strong>Modular Architecture:</strong> Separation of Controllers, Services, and Routes.</li>
+        <li><strong>Type Safety:</strong> 100% TypeScript implementation across frontend and backend.</li>
+        <li><strong>Performance:</strong> Redis caching strategy implemented for the <code>GET /tasks</code> endpoint to reduce database load.</li>
+    </ul>
+
+    <h2>5. Testing ✅</h2>
+    <p>Backend stability is verified with integration tests.</p>
+    <pre><code>npm run test</code></pre>
+    <ul>
+        <li><strong>Results:</strong> 8/8 Tests Passed</li>
+        <li><strong>Coverage:</strong> > 70% Code Coverage</li>
+    </ul>
+
+    <div class="footer">
+        <p>End of Submission Document</p>
+    </div>
+
+</body>
+</html>
