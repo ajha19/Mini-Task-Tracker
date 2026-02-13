@@ -2,13 +2,17 @@
 
 A professional, full-stack Task Tracker application built with Node.js, Express, MongoDB, Redis, and Next.js.
 
+> **Tip:** For a detailed, step-by-step guide on how this project was built and verified, please refer to [WALKTHROUGH.md](./WALKTHROUGH.md).
+
 ## Features
 
 - **Authentication**: Secure Signup and Login with JWT and Bcrypt.
-- **Task Management**: Create, Read, Update, and Delete tasks.
+- **Task Management**: Create, Read, Update, and Delete tasks with **Due Dates** and **Status**.
+- **Filtering**: Filter tasks by status (All, Pending, Completed).
 - **Caching**: Redis caching for high-performance task retrieval.
 - **Modern UI**: Clean, responsive interface built with Next.js and Tailwind CSS.
 - **Optimistic Updates**: Immediate UI feedback for better user experience.
+- **Auto-Logout**: Secure session management prevents access to login page while authenticated.
 
 ## Tech Stack
 
@@ -39,21 +43,24 @@ cd mini-task-tracker
 cd backend
 npm install
 cp .env.example .env
-# Update .env with your MongoDB and Redis URIs if needed
+# Update .env with your MongoDB and Redis URIs if needed.
+# Ensure PORT is set to 5001 in .env
 npm run dev
 ```
 
-The backend server will start on `http://localhost:5000`.
+The backend server will start on **[http://localhost:5001](http://localhost:5001)**.
 
 ### 3. Frontend Setup
 
 ```bash
 cd frontend
 npm install
+cp .env.example .env.local
+# Ensure NEXT_PUBLIC_API_URL is set to http://localhost:5001/api
 npm run dev
 ```
 
-The frontend application will start on `http://localhost:3000`.
+The frontend application will start on **[http://localhost:3000](http://localhost:3000)**.
 
 ## Docker Setup (Optional)
 
@@ -74,6 +81,8 @@ npm test
 ```
 
 ## API Endpoints
+
+Base URL: `http://localhost:5001`
 
 - `POST /api/auth/signup` - Register a new user
 - `POST /api/auth/login` - Login user
