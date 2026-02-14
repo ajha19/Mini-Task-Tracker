@@ -5,6 +5,15 @@
 
 ---
 
+### 🔗 Submission Links (Checklist Items)
+- **📂 GitHub Repository:** [https://github.com/ajha19/Mini-Task-Tracker](https://github.com/ajha19/Mini-Task-Tracker)
+- **🎥 Demo Video:** [Watch on Google Drive](https://drive.google.com/drive/folders/1cijVPrgkRqR_OqkFudztDai3YELdTg35?usp=drive_link)
+
+![Project Dashboard with Task Management Features](./assets/Dashboard.png)
+*Fig 1. Project Dashboard with Task Management Features*
+
+---
+
 ## 1. Project Overview 🚀
 
 The **Mini Task Tracker** is a full-stack web application designed to manage tasks efficiently. It demonstrates "communication superpowers" through a polished UI/UX and a robust backend architecture.
