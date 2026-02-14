@@ -2,7 +2,11 @@
 
 A professional, full-stack Task Tracker application built with Node.js, Express, MongoDB, Redis, and Next.js.
 
+<<<<<<< HEAD
 > **Tip:** For a detailed, step-by-step guide on how this project was built and verified, please refer to [WALKTHROUGH.md](./walkthrough.md) or the [Print-Ready HTML](./WALKTHROUGH.html).
+=======
+> **Tip:** For a detailed, step-by-step guide on how this project was built and verified, please refer to walkthrough.md
+>>>>>>> ea890b7815f3223141dbfec4edcb4373bbf031ce
 
 ## Features
 
